@@ -1,25 +1,13 @@
-package com.example.jikedemo.dao;
-
-import com.sun.xml.internal.ws.developer.Serialization;
+package com.example.jikedemo.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class Product implements Serializable{
-
     private static final long serialVersionUID = 748392348L;
     private String name;
     private String description;
-    private float price;
-
-    public Product() {
-
-    }
-
-    public Product(String name, String description, float price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
+    private BigDecimal price;
 
     public String getName() {
         return name;
@@ -37,13 +25,11 @@ public class Product implements Serializable{
         this.description = description;
     }
 
-    public float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
-
-
 }
