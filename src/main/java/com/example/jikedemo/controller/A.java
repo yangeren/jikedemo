@@ -5,13 +5,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
 import java.util.logging.Logger;
 
 @Controller
-@RequestMapping(method = RequestMethod.GET, path = "/path")
-
+@RequestMapping(method = RequestMethod.GET, path = "/page")
 public class A {
 
 //    private static final Logger logger = (Logger) LoggerFactory.getLogger(A.class);
@@ -42,7 +42,17 @@ public class A {
         return "name";
     }
 
+    @RequestMapping("/index")
+    public ModelAndView Index() {
+        ModelAndView modelAndView = new ModelAndView("/jike");
+        return modelAndView;
+    }
 
+    @ResponseBody
+    @RequestMapping(path = "/text", method = RequestMethod.GET)
+    public String good() {
+        return "this is the home page";
+    }
 //    ApplicationContext context = new ClassPathXmlApplicationContext(
 //            new String[] {"spring-config.xml"}
 //    );
