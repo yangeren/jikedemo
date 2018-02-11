@@ -7,39 +7,48 @@
 
     <!-- 自动扫描包，实现支持注解的IOC -->
     <context:component-scan base-package="com.example.jikedemo.controller"/>
+    <context:component-scan base-package="cn.wanghan.demo.controller"/>
 
 
-    <!-- Spring MVC不处理静态资源 -->
-    <mvc:default-servlet-handler/>
+    <!--&lt;!&ndash; Spring MVC不处理静态资源 &ndash;&gt;-->
+    <!--<mvc:default-servlet-handler/>-->
 
-    <!-- 支持mvc注解驱动 -->
-    <mvc:annotation-driven/>
+    <!--&lt;!&ndash; 支持mvc注解驱动 &ndash;&gt;-->
+    <!--<mvc:annotation-driven/>-->
 
     <!-- 视图解析器 -->
-    <bean id="viewResoler" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/"/>
+    <!--<bean id="viewResoler" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
+        <!--<property name="suffix" value=".jsp"/>-->
+    <!--</bean>-->
+
+    <!--<bean name="featuredProduct" class="com.example.jikedemo.dao.Product">-->
+        <!--<constructor-arg name="name" value="Ultimate Olive Oil"/>-->
+        <!--<constructor-arg name="description" value="The purest olive oil on the market"/>-->
+        <!--<constructor-arg name="price" value="9.95"/>-->
+    <!--</bean>-->
+
+    <!--<bean name="simpleAddress" class="com.example.jikedemo.dao.Address">-->
+        <!--<constructor-arg name="line1" value="151 Corner Streer"/>-->
+        <!--<constructor-arg name="line2" value=""/>-->
+        <!--<constructor-arg name="city" value="Albany"/>-->
+        <!--<constructor-arg name="state" value="NY"/>-->
+        <!--<constructor-arg name="zipCode" value="99999"/>-->
+        <!--<constructor-arg name="country" value="US"/>-->
+    <!--</bean>-->
+
+    <!--<bean name="employee1" class="com.example.jikedemo.dao.Employee">-->
+        <!--<property name="homeAddress" ref="simpleAddress"/>-->
+        <!--<property name="firstName" value="Junior"/>-->
+        <!--<property name="lastName" value="Moore"/>-->
+    <!--</bean>-->
+
+    <bean name="/input-product" class="cn.wanghan.demo.controller.InputProductController"/>
+    <bean name="/save-product" class="cn.wanghan.demo.controller.SaveProductController"/>
+
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp"/>
     </bean>
-
-    <bean name="featuredProduct" class="com.example.jikedemo.dao.Product">
-        <constructor-arg name="name" value="Ultimate Olive Oil"/>
-        <constructor-arg name="description" value="The purest olive oil on the market"/>
-        <constructor-arg name="price" value="9.95"/>
-    </bean>
-
-    <bean name="simpleAddress" class="com.example.jikedemo.dao.Address">
-        <constructor-arg name="line1" value="151 Corner Streer"/>
-        <constructor-arg name="line2" value=""/>
-        <constructor-arg name="city" value="Albany"/>
-        <constructor-arg name="state" value="NY"/>
-        <constructor-arg name="zipCode" value="99999"/>
-        <constructor-arg name="country" value="US"/>
-    </bean>
-
-    <bean name="employee1" class="com.example.jikedemo.dao.Employee">
-        <property name="homeAddress" ref="simpleAddress"/>
-        <property name="firstName" value="Junior"/>
-        <property name="lastName" value="Moore"/>
-    </bean>
-
 </beans>
