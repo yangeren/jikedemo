@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.logging.Logger;
 
 @Controller
-@RequestMapping(method = RequestMethod.GET, path = "/page")
+//@RequestMapping(method = RequestMethod.GET, path = "/page")
 public class A {
 
 //    private static final Logger logger = (Logger) LoggerFactory.getLogger(A.class);
