@@ -1,18 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: hanz
-  Date: 18-2-11
-  Time: 上午10:22
+  Date: 18-2-12
+  Time: 上午11:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Add Product Form</title>
+    <title>Title</title>
 </head>
 <body>
-
-<form method="post" action="save-product">
+<form method="post" action="/save-product">
     <h1> Add Product
         <span>Please use this form to enter product details</span>
     </h1>

@@ -8,13 +8,22 @@
     <!-- 自动扫描包，实现支持注解的IOC -->
     <context:component-scan base-package="com.example.jikedemo.controller"/>
     <context:component-scan base-package="cn.wanghan.demo.controller"/>
+    <context:component-scan base-package="cn.wanghan.demo.service"/>
 
     <!-- 支持mvc注解驱动 -->
     <mvc:annotation-driven/>
 
+    <!--&lt;!&ndash;&ndash;&gt;-->
+    <!--<mvc:resources mapping="/WEB-INF/css/**" location="/WEB-INF/css/" />-->
+    <!--<mvc:resources mapping="/WEB-INF/*.html" location="/WEB-INF/"/>-->
+
     <!-- Spring MVC不处理静态资源 -->
     <mvc:default-servlet-handler/>
 
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp"/>
+    </bean>
 
     <!-- 视图解析器 -->
     <!--<bean id="viewResoler" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
@@ -47,8 +56,4 @@
     <!--<bean name="/save-product" class="cn.wanghan.demo.controller.SaveProductController"/>-->
 
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/" />
-        <property name="suffix" value=".jsp"/>
-    </bean>
 </beans>

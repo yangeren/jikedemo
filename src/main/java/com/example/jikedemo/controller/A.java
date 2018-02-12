@@ -36,13 +36,14 @@ public class A {
         return "jike";
     }
 
-    @RequestMapping(path = "/get")
+    @RequestMapping(value = {"", "/get1", "/get2"})
 //    @ResponseBody
-    public String h() {
+    public String h(@RequestParam("id") String id) {
+        System.out.println(id);
         return "name";
     }
 
-    @RequestMapping("/index")
+    @RequestMapping(value = "/index", produces = "application/JSON")
     public ModelAndView Index() {
         ModelAndView modelAndView = new ModelAndView("/jike");
         return modelAndView;
@@ -57,4 +58,6 @@ public class A {
 //            new String[] {"spring-config.xml"}
 //    );
 //    LocalDate localDate = context.getBean("localDate", LocalDate.class);
+
+
 }

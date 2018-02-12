@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Savepoint;
 
-@WebServlet(name = "ControllerServlet", urlPatterns = {"/input-product", "/save-product"})
+//@WebServlet(name = "ControllerServlet", urlPatterns = {"/input-product", "/save-product"})
 public class ControllerServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1579L;
