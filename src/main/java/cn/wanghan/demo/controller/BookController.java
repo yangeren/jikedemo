@@ -2,6 +2,7 @@ package cn.wanghan.demo.controller;
 
 import cn.wanghan.demo.domain.Book;
 import cn.wanghan.demo.domain.Category;
+import cn.wanghan.demo.service.BookService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @Controller
 public class BookController {
+
     @Autowired
     private BookService bookService;
 
@@ -25,7 +27,7 @@ public class BookController {
         List<Category> categories = bookService.getAllCategories();
         model.addAttribute("categories", categories);
         model.addAttribute("book", new Book());
-        return "BookAddForm";
+        return "/book/BookAddForm";
     }
 
     @RequestMapping(value = "/edit-book/{id}")
@@ -34,7 +36,7 @@ public class BookController {
         model.addAttribute("categories", categories);
         Book book = bookService.get(id);
         model.addAttribute("book", book);
-        return "BookEditForm";
+        return "/book/BookEditForm";
     }
 
     @RequestMapping(value = "/save-book")
@@ -46,4 +48,18 @@ public class BookController {
     }
 
     @RequestMapping(value = "/update-book")
+    public String updateBook(@ModelAttribute Book book) {
+        Category category = bookService.getCategory(book.getCategory().getId());
+        book.setCategory(category);
+        bookService.update(book);
+        return "redirect:/list-book";
+    }
+
+    @RequestMapping(value = "/list-book")
+    public String listBook(Model model) {
+        logging.info("listBooks");
+        List<Book> books = bookService.getAllBooks();
+        model.addAttribute("books", books);
+        return "/book/BookList";
+    }
 }
