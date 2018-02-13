@@ -25,6 +25,42 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--converters转换方式注册-->
+    <!--<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
+        <!--<property name="converters">-->
+            <!--<list>-->
+                <!--<bean class="cn.wanghan.demo.service.MyConverter">-->
+                    <!--<constructor-arg type="java.lang.String" value="MM-dd-yyyy"/>-->
+                <!--</bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--<mvc:annotation-driven conversion-service="conversionService"/>-->
+
+    <!--formatter方式转换，注册 -->
+    <!--<mvc:annotation-driven conversion-service="conversionService"/>-->
+    <!--<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
+        <!--<property name="formatters">-->
+            <!--<set>-->
+                <!--<bean class="cn.wanghan.demo.service.LocalDateFormatter">-->
+                    <!--<constructor-arg type="java.lang.String" value="MM-dd-yy"/>-->
+                <!--</bean>-->
+            <!--</set>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+    <!--注册Registrar,就不用注册 formatter了-->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatterRegistrars">
+            <set>
+                <bean class="cn.wanghan.demo.service.MyFormatterRegistrar">
+                    <constructor-arg type="java.lang.String" value="MM-dd-yyyy"/>
+                </bean>
+            </set>
+        </property>
+    </bean>
     <!-- 视图解析器 -->
     <!--<bean id="viewResoler" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
         <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
