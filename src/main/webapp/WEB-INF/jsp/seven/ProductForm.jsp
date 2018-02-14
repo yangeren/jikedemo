@@ -33,5 +33,11 @@
     </label>
 </form>
 
+<p>
+    ${pageContext.request}
+</p>
+<p>${pageContext.request.method}</p>
+<p>${initParam.product}</p>
+<p>${param.get("product")}</p>
 </body>
 </html>
