@@ -36,11 +36,17 @@ public class A {
         return "jike";
     }
 
-    @RequestMapping(value = {"", "/get1", "/get2"})
+    @RequestMapping(value = {"/get1", "/get2"})
 //    @ResponseBody
     public String h(@RequestParam("id") String id) {
         System.out.println(id);
         return "name";
+    }
+
+    @RequestMapping(value = "")
+    @ResponseBody
+    public String index() {
+        return "this is the index response";
     }
 
     @RequestMapping(value = "/index", produces = "application/JSON")
