@@ -6,11 +6,20 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.time.LocalDate" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+<h2>
+    Today is ${LocalDate.now()}
+</h2>
+
+<div>
+    ${["Aster", "Carnation", "Rose"]}
+    <li>${list[0]}</li>
+</div>
 <form method="post" action="/seven-save-product">
     <h1> Add Product
         <span>Please use this form to enter product details</span>
