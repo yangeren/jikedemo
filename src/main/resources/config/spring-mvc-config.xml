@@ -26,6 +26,10 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+    </bean>
     <!--converters转换方式注册-->
     <!--<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
         <!--<property name="converters">-->
